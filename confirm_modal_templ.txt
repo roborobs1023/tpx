@@ -1,0 +1,5 @@
+<dialog id=\"modal\" class=\"modal\"><div class=\"modal-box\"><h3 class=\"font-bold text-lg\">
+</h3><p class=\"py-4\">
+</p><div class=\"modal-action flex items-center justify-end\"><form method=\"dialog\"><button class=\"btn\">
+</button></form>
+</div></div></dialog>

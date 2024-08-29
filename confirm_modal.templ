@@ -1,0 +1,43 @@
+package tpx
+
+// Defines the fields for creating a confirmation modal
+type ConfirmModalState struct {
+	Heading       string
+	Text          string
+	CancelText    string
+	ConfirmMethod string
+	ConfirmAction string
+	ConfirmText   string
+}
+
+// NewConfirmModal creates a new confirmation modal
+func NewConfirmModal(s ConfirmModalState) Renderer {
+	return newModalDetail(
+		confirmModalType,
+		s.Heading,
+		s.Text,
+		s.CancelText,
+		s.ConfirmText,
+		s.ConfirmMethod,
+		s.ConfirmAction,
+	)
+}
+
+// confirmModal is the template for the modal.
+templ confirmModal(m modalDetail) {
+	<dialog id="modal" class="modal">
+		<div class="modal-box">
+			<h3 class="font-bold text-lg">{ m.Heading }</h3>
+			<p class="py-4">{ m.Text }</p>
+			<div class="modal-action flex items-center justify-end">
+				<form method="dialog">
+					<button class="btn">{ m.CancelText }</button>
+				</form>
+				@modalConfirmButton(m.ConfirmMethod, m.ConfirmAction, m.ConfirmText)
+			</div>
+		</div>
+	</dialog>
+	// include the required scripts
+	@showModalScript()
+	@closeModalScript()
+}

@@ -1,0 +1,6 @@
+<button id=\"modal-confirm-btn\" hx-delete=\"
+\" hx-swap=\"none\">
+</button>
+<button id=\"modal-confirm-btn\" hx-post=\"
+\" hx-swap=\"none\">
+</button>
