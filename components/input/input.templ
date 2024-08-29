@@ -1,0 +1,32 @@
+package input
+
+import (
+    "fmt"
+)
+
+type InputProps struct {
+    Name string
+    Label string
+    LabelClass string //
+    InputClass string
+    Required bool
+    Disabled bool
+}
+
+templ Text(props InputProps, value string) {
+    <div>
+        <label class={ props.LabelClass }>
+            <span>
+                { props.Label }
+            </span>
+            <input 
+            name={ props.Name } 
+            type="text" 
+            value={ value } 
+            class={ fmt.Sprint("input", props.InputClass) } 
+            required={ fmt.Sprintf("%v", props.Required) }
+            disabled={ fmt.Sprintf("%v",props.Disabled) }
+            />
+        </label>
+    </div>
+}

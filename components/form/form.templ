@@ -1,0 +1,29 @@
+package form
+
+import (
+    "fmt"
+)
+
+type FormState struct {
+    Type Type
+    Heading string
+    ActionURL string
+    Method string
+    Class string 
+    
+}
+
+func NewGeneralForm(f FormState) Renderer {
+    return newFormDetail(
+        genericFormType,
+        f.Heading, 
+        f.Method,
+        f.ActionURL,
+        f.Class + "form",
+    )
+}
+
+templ form(props formDetail) {
+    <form action={ templ.URL(fmt.Sprint(props.ActionURL)) } method={ props.Method }>
+    </form>
+}

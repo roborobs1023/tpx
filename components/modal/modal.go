@@ -1,4 +1,4 @@
-package tpx
+package modal
 
 import (
 	"github.com/a-h/templ"
